@@ -1,3 +1,3 @@
 Implementation of L-systems using the turtle package
 
-<img source = "tree.png"?
+<img source = "tree.png">
