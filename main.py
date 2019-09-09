@@ -1,43 +1,43 @@
 import turtle as t
 import random as r
 
-position = [-300, 50]
-axiom = 'F++F++F'
-rule = ['F', ' F-F(++F-F']
-angle = 60
-step = 5
-iterations = 4
+sierpinski = {
+        "position" : [-200, 100],
+        "axiom" : 'F+F+F',
+        "rule" : ['F', 'F+F(-F-F+F'],
+        "angle" : 120,
+        "step" : 25,
+        "iterations" : 4
+        }
 
-#pentadendryt
-"""
-position = [-500, -150]
-axiom = 'F'
-rule = ['F', 'F+(F-F--F+F+F']
-angle = 72
-step = 10
-iterations = 4
-"""
+pentadendryt = {
+        "position" : [-500, -200],
+        "axiom" : 'F',
+        "rule" : ['F', 'F+(F-F--F+F+F'],
+        "angle" : 72,
+        "step" : 10,
+        "iterations" : 4
+        }
 
-#sierpinski
-"""
-position = (-200, 100)
-axiom = 'F+F+F'
-rule = ['F', 'F+F(-F-F+F']
-angle = 120
-step = 25
-iterations = 4
-"""
+drzewo = {
+        "position" : [-200, -900],
+        "axiom" : '---F',
+        "rule" : ['F', 'FF+[+F-F(-F]-[-F+F+F]'],
+        "angle" : 22.5,
+        "step" : 25,
+        "iterations" : 3
+        }
 
-# drzewo
-"""
-position = (-200, -300)
-axiom = '---F'
-rule = ['F', 'FF+[+F-F(-F]-[-F+F+F]']
-angle = 22.5
-step = 25
-iterations = 3
-"""
+snowflake = {
+        "position" : [-300, 50],
+        "axiom" : 'F++F++F',
+        "rule" : ['F', 'F-F(++F-F)'],
+        "angle" : 60,
+        "step" : 5,
+        "iterations" : 4
+        }
 
+list = [snowflake, sierpinski, pentadendryt, drzewo]
 
 def gen(axiom, rule, num):
     sentence = axiom
@@ -73,13 +73,15 @@ def draw(s,  angle, step):
         elif x == '(':
             t.pencolor((r.randrange(255), r.randrange(255), r.randrange(255)))
 
+randfraq = r.choice(list)
 t.penup()
-t.setx(position[0])
-t.sety(position[1])
+t.setx(randfraq["position"][0])
+t.sety(randfraq["position"][1])
 t.pendown()
-t.speed(100)
+t.speed(0)
 t.colormode(255)
-nsentence = gen(axiom,rule,iterations)
-draw(nsentence, angle, step)
+
+nsentence = gen(randfraq["axiom"], randfraq["rule"], randfraq["iterations"])
+draw(nsentence, randfraq["angle"], randfraq["step"])
 
 t.done()
