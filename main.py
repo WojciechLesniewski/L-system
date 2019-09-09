@@ -20,7 +20,7 @@ pentadendryt = {
         }
 
 drzewo = {
-        "position" : [-200, -900],
+        "position" : [-200, -500],
         "axiom" : '---F',
         "rule" : ['F', 'FF+[+F-F(-F]-[-F+F+F]'],
         "angle" : 22.5,
