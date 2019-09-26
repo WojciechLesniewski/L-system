@@ -41,7 +41,7 @@ list = [snowflake, sierpinski, pentadendryt, drzewo]
 
 def gen(axiom, rule, num):
     sentence = axiom
-    for i in range(num):
+    for _ in range(num):
         sentence = sentence.replace(rule[0],rule[1])
     return sentence
 
